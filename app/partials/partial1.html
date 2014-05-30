@@ -1,1 +1,11 @@
 <p>This is the partial for view 1.</p>
+
+<select ng-model='selectedPerson' ng-options='person.name for person in people'></select>
+
+<ul class='people'>
+	<li ng-repeat='person in people | filter: selectedPerson'>
+		<p>{{person.name}}</p>
+		<p>{{person.address}}</p>
+		<p>{{person.phone}}</p>
+	</li>
+</ul>

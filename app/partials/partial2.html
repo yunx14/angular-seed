@@ -3,3 +3,14 @@
   Showing of 'interpolate' filter:
   {{ 'Current version is v%VERSION%.' | interpolate }}
 </p>
+
+<select ng-model='selectedGroup' ng-options='metric.group for metric in metrics'></select>
+
+<ol class='metrics'>
+	<li ng-repeat='metric in metrics | filter: selectedGroup'>
+		<p>{{metric.name}}</p>
+		<p>{{metric.group}}</p>
+		<p>{{metric.year}}</p>
+		<p>{{metric.quarter}}</p>
+	</li>
+</ol>
