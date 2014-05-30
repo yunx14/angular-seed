@@ -4,10 +4,10 @@
   {{ 'Current version is v%VERSION%.' | interpolate }}
 </p>
 
-<select ng-model='selectedGroup' ng-options='metric.group for metric in metrics'></select>
+<select ng-model='selectedGroup' ng-options="metric.group as metric.group for metric in metrics | unique:'group'"></select>
 
 <ol class='metrics'>
-	<li ng-repeat='metric in metrics | filter: selectedGroup'>
+	<li ng-repeat='metric in metrics | filter: {group:selectedGroup}'>
 		<p>{{metric.name}}</p>
 		<p>{{metric.group}}</p>
 		<p>{{metric.year}}</p>
