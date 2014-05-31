@@ -5,9 +5,12 @@
 </p>
 
 <select ng-model='selectedGroup' ng-options="metric.group as metric.group for metric in metrics | unique:'group'"></select>
+<select ng-model='selectedName' ng-options="metric.name as metric.name for metric in metrics | unique:'name'"></select>
+<select ng-model='selectedYear' ng-options="metric.year as metric.year for metric in metrics | unique:'year'"></select>
+
 
 <ol class='metrics'>
-	<li ng-repeat='metric in metrics | filter: {group:selectedGroup}'>
+	<li ng-repeat='metric in metrics | filter: {group:selectedGroup, year:selectedYear, name:selectedName}'>
 		<p>{{metric.name}}</p>
 		<p>{{metric.group}}</p>
 		<p>{{metric.year}}</p>
